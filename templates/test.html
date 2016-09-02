@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Begin your test!</title>
+</head>
+<body>
+Please choose a test you want to pass.<br>
+<form action="{% url 'test' %}" method="post">{% csrf_token %}
+    {% for i in packs %}
+    <input type="radio" value="{{ i.id }}"> {{ i.number }}
+    {% endfor %}
+    <input type="submit" value="go!">
+</form>
+
+
+
+</body>
+</html>
