@@ -8,9 +8,9 @@
 Please choose a test you want to pass.<br>
 <form action="{% url 'test' %}" method="post">{% csrf_token %}
     {% for i in packs %}
-    <input type="radio" value="{{ i.id }}"> {{ i.number }}
+    <input type="radio" name="pack" value="{{ i.id }}">{{ i.group }}<br>
     {% endfor %}
-    <input type="submit" value="go!">
+    <input type="submit" value="GO!!!">
 </form>
 
 

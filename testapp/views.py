@@ -12,6 +12,8 @@ class MainView(TemplateView):
 class TestView(ListView):
 
     def get(self, request):
-        packs = models.Packs.objects.all()
+        packs = models.Group.objects.filter()
         return render(request, 'test.html', {'packs':packs})
 
+class QuestionView(TemplateView):
+    pass
