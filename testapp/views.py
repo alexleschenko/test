@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.http import request
+from django.shortcuts import render, get_object_or_404
 
 from django.views.generic import TemplateView
 from django.views.generic.list import ListView
@@ -11,9 +12,18 @@ class MainView(TemplateView):
 
 class TestView(ListView):
 
-    def get(self, request):
-        packs = models.Group.objects.filter()
-        return render(request, 'test.html', {'packs':packs})
+    model = models.Group
+    template_name = 'test.html'
+    context_object_name = 'packs'
 
-class QuestionView(TemplateView):
-    pass
+class QuestionView(ListView):
+    model = models.Question
+    template_name = 'test2.html'
+    context_object_name = 'questions'
+
+    def get_queryset(self):
+        group_id = self.request.GET.get('group_id')
+        queryset = super(QuestionView,self).get_queryset()
+        if group_id:
+            return queryset.filter(group_id=group_id)
+        return queryset

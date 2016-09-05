@@ -6,13 +6,13 @@
 </head>
 <body>
 Please choose a test you want to pass.<br>
-<form action="{% url 'test' %}" method="post">{% csrf_token %}
+    <form action="{% url 'question' %}" method="get">
     {% for i in packs %}
-    <input type="radio" name="pack" value="{{ i.id }}">{{ i.group }}<br>
-    {% endfor %}
-    <input type="submit" value="GO!!!">
-</form>
 
+    <input type="radio" value="{{ i.id }}" name="group_id">{{ i.group }}
+    {% endfor %}
+    <input type="submit" value="ok">
+    </form>
 
 
 </body>

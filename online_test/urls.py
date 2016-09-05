@@ -20,5 +20,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.MainView.as_view(), name='main'),
     url(r'^test/$', views.TestView.as_view(), name='test'),
+    url(r'^test/question/$', views.QuestionView.as_view(), name='question')
+
 
 ]

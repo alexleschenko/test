@@ -5,8 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-    {%  for i in pk %}
-    {{ i }}
+    <form action="#" method="post">
+    {% for i in questions %}
+        {{ i.question }}<br>
+        <input type="radio" name="{{ i.id }}" value="1"> {{ i.a1 }}<br>
+        <input type="radio" name="{{ i.id }}" value="2">{{ i.a2 }}<br>
+        <input type="radio" name="{{ i.id }}" value="3">{{ i.a3 }}<br>
+        <input type="radio" name="{{ i.id }}" value="4">{{ i.a4 }}<br>
+        <input type="radio" name="{{ i.id }}" value="5">{{ i.a5 }}<br>
+         <hr>
     {% endfor %}
+    <input type="submit" value="ok">
+    </form>
 </body>
 </html>
