@@ -6,13 +6,11 @@
 </head>
 <body>
 Please choose a test you want to pass.<br>
-    <form action="{% url 'question' %}" method="get">
-    {% for i in packs %}
 
-    <input type="radio" value="{{ i.id }}" name="group_id">{{ i.group }}
+    {% for i in packs %}
+    <a href="{% url 'test' %}{{ i.id }}/">{{ i.group }}</a>
     {% endfor %}
-    <input type="submit" value="ok">
-    </form>
+
 
 
 </body>

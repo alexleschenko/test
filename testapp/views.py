@@ -17,13 +17,9 @@ class TestView(ListView):
     context_object_name = 'packs'
 
 class QuestionView(ListView):
-    model = models.Question
     template_name = 'test2.html'
     context_object_name = 'questions'
 
     def get_queryset(self):
-        group_id = self.request.GET.get('group_id')
-        queryset = super(QuestionView,self).get_queryset()
-        if group_id:
-            return queryset.filter(group_id=group_id)
-        return queryset
+        url_parametr = self.kwargs['group_id']
+        return models.Question.objects.filter(group_id=url_parametr)
