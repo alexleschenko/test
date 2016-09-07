@@ -20,7 +20,8 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.MainView.as_view(), name='main'),
     url(r'^test/$', views.TestView.as_view(), name='test'),
-    url(r'^test/(?P<group_id>\d+)/$', views.QuestionView.as_view(), name='question')
+    url(r'^test/(?P<group_id>\d+)/$', views.QuestionView.as_view(), name='question'),
+    url(r'^test/result/$', views.TestResult.as_view(), name='result')
 
 
 ]

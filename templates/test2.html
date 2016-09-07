@@ -5,10 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-    <form action="#" method="post">
+    <form action="{% url 'result' %}" method="post">{% csrf_token %}
     {% for i in questions %}
         {{ i.question }}<br>
-        <input type="radio" name="{{ i.id }}" value="1"> {{ i.a1 }}<br>
+        <input type="hidden" name="group" value="{{ i.group_id }}">
+        <input type="radio" name="{{ i.id }}" value="1">{{ i.a1 }}<br>
         <input type="radio" name="{{ i.id }}" value="2">{{ i.a2 }}<br>
         <input type="radio" name="{{ i.id }}" value="3">{{ i.a3 }}<br>
         <input type="radio" name="{{ i.id }}" value="4">{{ i.a4 }}<br>
